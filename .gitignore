@@ -1,0 +1,7 @@
+node_modules/
+dist/
+tmp/
+source/
+*.log
+qa-*.png
+.DS_Store
