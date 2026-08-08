@@ -313,7 +313,14 @@ const test1Questions = Array.from({ length: 100 }, (_, index) => {
   }
 })
 
-export const lcQuestions = [...test1Questions, ...additionalQuestions]
+const assetUrl = (path) => path ? `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}` : path
+
+export const lcQuestions = [...test1Questions, ...additionalQuestions].map((question) => ({
+  ...question,
+  audio: assetUrl(question.audio),
+  image: assetUrl(question.image),
+  graphic: assetUrl(question.graphic),
+}))
 
 export const testMeta = Array.from({ length: 10 }, (_, index) => ({
   test: index + 1,
